@@ -22,6 +22,12 @@
 import java.util.Arrays;
 
 class Solution {
+    // Sorting + median: total distance is minimised at the median, so every
+    // element only has to travel to nums[n / 2].
+    // Time:  O(n log n) - the sort dominates; the distance scan is O(n).
+    // Space: O(log n)   - Arrays.sort on an int[] is an in-place dual-pivot
+    //                     quicksort, so it copies nothing, but it recurses.
+    //                     Everything else is a couple of scalars: O(1).
     public int minMoves2(int[] nums) {
 
         Arrays.sort(nums);
@@ -35,6 +41,10 @@ class Solution {
         return (int) moves;
     }
 
+    // Identical to minMoves2 - `length >> 1` and `length / 2` are the same for a
+    // non-negative length, so this is the same algorithm written two ways.
+    // Time:  O(n log n)
+    // Space: O(log n)   - same in-place sort, same recursion stack.
     public int minMoves3(int[] nums) {
 
         Arrays.sort(nums);

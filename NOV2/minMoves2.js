@@ -23,12 +23,26 @@
 // Output: 16
 
 /**
+ * Sorting + median: total distance is minimised at the median.
+ *
+ * Time:  O(n log n) - the sort dominates.
+ * Space: O(n)       - V8's Array.prototype.sort is TimSort, which allocates a
+ *                     temporary buffer, so this is worse than the Java version
+ *                     even though both sort the array in place.
+ *
  * @param {number[]} nums
  * @return {number}
  */
 var minMoves2 = function(nums) {
     nums.sort((a,b) => a - b);
     const median = nums[nums.length >> 1];
+    let moves = 0;
+    for(const n of nums) moves += Math.abs(n - median);
+    return moves;
+};
+var minMoves3 = function(nums) {
+    nums.sort((a,b) => a - b);
+    const median = nums[nums.length / 2 | 0];
     let moves = 0;
     for(const n of nums) moves += Math.abs(n - median);
     return moves;
