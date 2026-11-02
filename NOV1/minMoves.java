@@ -14,6 +14,9 @@
 // Output: 0
 
 class Solution {
+    // Single pass, no extra structures.
+    // Time:  O(n)  - one scan for the minimum and the sum.
+    // Space: O(1)  - only the min and sum accumulators, independent of n.
     public int minMoves(int[] nums) {
 
         int min = Integer.MAX_VALUE;

@@ -26,8 +26,6 @@
 // Explanation: The array leftSum is [0] and the array rightSum is [0].
 // The array answer is [|0 - 0|] = [0].
 
-
-
 class Solution {
     public int[] leftRightDifference(int[] nums) {
         int totalSum = 0;
