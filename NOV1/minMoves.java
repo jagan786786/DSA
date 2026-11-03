@@ -25,8 +25,11 @@ class Solution {
     // Time:  O(n) - one scan that tracks the minimum and the sum together.
     // Space: O(1) - two accumulators, independent of n.
     //
-    // sum is long and n * min is widened before multiplying, because n can be
-    // 10^5 and each value up to 10^9: that product overflows int.
+    // sum is long and nums.length * min is widened before multiplying. Like
+    // NOV3's minMoves3 this is defensive rather than a fix: with only +, - and
+    // *, int arithmetic wraps modulo 2^32 and still produces the right answer
+    // whenever that answer fits in int. The widening documents the intent and
+    // keeps the method honest if the return type is ever widened to long.
     public int minMoves(int[] nums) {
 
         int min = Integer.MAX_VALUE;

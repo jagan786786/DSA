@@ -1,0 +1,5 @@
+# Compiled Java output
+*.class
+
+# Node
+node_modules/

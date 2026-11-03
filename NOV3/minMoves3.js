@@ -34,8 +34,10 @@
  * Time:  O(n) - one scan that tracks the maximum and the sum together.
  * Space: O(1) - two accumulators, independent of n.
  *
- * No overflow guard is needed here, unlike the Java version: JS numbers are
- * doubles and stay exact up to 2^53, well above the ~10^14 this can reach.
+ * Overflow is a non-issue here: JS numbers are doubles and stay exact up to
+ * 2^53, well above the ~10^14 this expression can reach. The Java version
+ * widens to long in the same spot, but only as documentation - with just
+ * +, - and * its int arithmetic was already correct.
  *
  * @param {number[]} nums
  * @return {number}

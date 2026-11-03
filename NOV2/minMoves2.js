@@ -30,6 +30,10 @@
  *
  * Note this sorts nums in place, so the caller's array is reordered.
  *
+ * The Java twin needs a (long) cast around num - median because Math.abs there
+ * cannot undo an int wrap. Nothing equivalent is needed here: doubles hold
+ * every value these inputs can produce.
+ *
  * @param {number[]} nums
  * @return {number}
  */

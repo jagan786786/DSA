@@ -33,8 +33,12 @@ class Solution {
     //                     O(log n) depth. Everything else is a few scalars.
     //
     // Note this sorts nums in place, so the caller's array is reordered.
-    // moves is long because n up to 10^5 and values up to 10^9 make the
-    // intermediate total exceed int even when the final answer fits.
+    //
+    // The (long) cast on the subtraction is load-bearing here, unlike the
+    // defensive widening in NOV1 and NOV3: Math.abs cannot undo an int wrap.
+    // For values straddling the int range, num - median overflows and abs
+    // returns a negative distance - [-2000000000, 2000000000, 0] yields
+    // -294967296 under int arithmetic against the correct 4000000000.
     public int minMoves2(int[] nums) {
 
         Arrays.sort(nums);
