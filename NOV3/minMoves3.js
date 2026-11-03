@@ -11,8 +11,6 @@
 
 // Return the minimum total number of moves required so that all elements in nums become equal.
 
- 
-
 // Example 1:
 
 // Input: nums = [2,1,3]
