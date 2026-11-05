@@ -65,3 +65,49 @@ public class findTheDistanceValue {
         return count;
     }
 }
+
+
+// Approch - 2:
+
+class Solution {
+    public int findTheDistanceValue(int[] arr1, int[] arr2, int d) {
+
+        Arrays.sort(arr2);
+
+        int count = 0;
+
+        for (int num : arr1) {
+
+            int left = 0;
+            int right = arr2.length;
+
+            while (left < right) {
+                int mid = left + (right - left) / 2;
+
+                if (arr2[mid] < num) {
+                    left = mid + 1;
+                } else {
+                    right = mid;
+                }
+            }
+
+            boolean valid = true;
+
+            if (left < arr2.length &&
+                Math.abs((long) arr2[left] - num) <= d) {
+                valid = false;
+            }
+
+            if (left > 0 &&
+                Math.abs((long) arr2[left - 1] - num) <= d) {
+                valid = false;
+            }
+
+            if (valid) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+}
