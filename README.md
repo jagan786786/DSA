@@ -7,30 +7,6 @@ interviews. Most problems are solved twice, once in **Java** and once in **JavaS
 
 Solutions are grouped into folders by the day they were solved, with one problem per file:
 
-```
-DSA/
-├── NOV1/
-│   ├── leftRightDifference.java   2574. Left and Right Sum Differences          (Easy)
-│   └── minMoves.java              453.  Minimum Moves to Equal Array Elements    (Easy)
-├── NOV2/
-│   ├── ListNode.java              2.    Add Two Numbers                          (Medium)
-│   ├── addTwoNumbers.js           2.    Add Two Numbers                          (Medium)
-│   ├── minMoves2.java             462.  Minimum Moves to Equal Array Elements II (Medium)
-│   └── minMoves2.js               462.  Minimum Moves to Equal Array Elements II (Medium)
-├── NOV3/
-│   ├── minMoves3.java             3736. Minimum Moves to Equal Array Elements III (Easy)
-│   ├── minMoves3.js               3736. Minimum Moves to Equal Array Elements III (Easy)
-│   ├── removeNthFromEnd.java      19.   Remove Nth Node From End of List          (Medium)
-│   └── removeNthFromEnd.js        19.   Remove Nth Node From End of List          (Medium)
-├── NOV4/
-│   ├── mergeTwoLists.java         21.   Merge Two Sorted Lists                    (Easy)
-│   └── mergeTwoLists.js           21.   Merge Two Sorted Lists                    (Easy)
-└── README.md
-```
-
-`NOV2/ListNode.java` holds the Java solution to *Add Two Numbers*. It is named after the
-`ListNode` class rather than the method, because Java requires a public class to match its file
-name.
 
 ## File shape
 
@@ -68,6 +44,13 @@ Compile one file at a time into its own output directory, then run `Solution`:
 ```bash
 javac -d out/minMoves NOV1/minMoves.java
 java -cp out/minMoves Solution
+```
+
+`NOV5` declares a package, so it is addressed by its qualified name instead:
+
+```bash
+javac -d out/distance NOV5/findTheDistanceValue.java
+java -cp out/distance NOV5.Solution
 ```
 
 Every file declares its own `class Solution`, which is what LeetCode expects. That means **a
