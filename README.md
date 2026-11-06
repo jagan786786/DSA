@@ -53,6 +53,14 @@ javac -d out/distance NOV5/findTheDistanceValue.java
 java -cp out/distance NOV5.Solution
 ```
 
+`NOV6` keeps its examples in a separate `Main` class rather than in `Solution`, so that is the
+class to run:
+
+```bash
+javac -d out/servers NOV6/countServers.java
+java -cp out/servers Main
+```
+
 Every file declares its own `class Solution`, which is what LeetCode expects. That means **a
 whole folder cannot be compiled at once** — `javac NOV3/*.java` fails with
 `duplicate class: Solution`. Compile per file, into separate directories.
