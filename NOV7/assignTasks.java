@@ -52,40 +52,37 @@
 // tasks.length == m
 // 1 <= n, m <= 2 * 105
 // 1 <= servers[i], tasks[j] <= 2 * 105
-
-
 package NOV7;
-
-
+import java.util.*;
 class Solution {
     static class Server {
-        int index;
-        int wt;
-        Server(int i, int w) {
+        long index;
+        long wt;
+        Server(long i, long w) {
             this.index = i;
             this.wt = w;
         }
     }
     static class Usage {
-        int freeTime;
+        long freeTime;
         Server server;
-        Usage(int f, Server s) {
+        Usage(long f, Server s) {
             this.server = s;
             this.freeTime = f;
         }
     }
     PriorityQueue<Server> pqs = new PriorityQueue<>( (a, b) -> {
         if(a.wt == b.wt)
-            return a.index - b.index;
-        return a.wt - b.wt;
+            return Long.compare(a.index, b.index);
+        return Long.compare(a.wt, b.wt);
     });
-    PriorityQueue<Usage> busy = new PriorityQueue<>((a, b) -> a.freeTime - b.freeTime);
+    PriorityQueue<Usage> busy = new PriorityQueue<>((a, b) -> Long.compare(a.freeTime, b.freeTime));
     public int[] assignTasks(int[] servers, int[] tasks) {
         for(int i = 0; i < servers.length; i++) {
             pqs.add(new Server(i, servers[i]));
         }
         int[] ans = new int[tasks.length];
-        int time = 0;
+        long time = 0;
         for(int i = 0; i < tasks.length; i++) {
             while(!busy.isEmpty() && busy.peek().freeTime <= i) {
                 pqs.add(busy.poll().server);
@@ -97,7 +94,7 @@ class Solution {
             }
 
             Server server = pqs.poll();
-            ans[i] = server.index;
+            ans[i] = (int) server.index;
             busy.add(new Usage(time + tasks[i], server));
             if(time == i)
                 time++;
